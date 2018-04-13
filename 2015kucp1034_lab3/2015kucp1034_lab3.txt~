@@ -1,0 +1,75 @@
+#########*************** LAB 3 text file ***************##########
+
+Exercise 1)
+
+ Ans 1)
+ 
+ 	Command used : ifconfig -> to find IP address and Subnet mask.
+ 				   route -> to find default gateway
+ 				   Network address -> we get this by "bitwise AND"
+ 				   					  of IP address and subnet mask.
+ 	
+ 		IP address      : 172.16.7.228
+ 		Network address : 172.16.7.0
+ 		subnet mask     : 255.255.255.0
+ 		default gateway : 172.16.7.1
+
+
+
+ Ans 2)
+
+	 0                   1                   2                   3
+    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |Version: 4| IHL: 20 bytes  |Type of Service| Total Length :60  |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |   Identification:    | Flags :0x02      | Fragment Offset: 0  |
+   |   0x98b1  (39089)    | (Don't Fragment) |                     |				
+   |                      |                  |                     |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   | Time to Live: 64| Protocol: TCP (6) | Header Checksum: 0xb9bd |
+   |                 |                   | [validation	disabled]  |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                Source Address: 172.16.7.228                   |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |           Destination Address: 210.212.97.132                 |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+   |                    Options                    |    Padding    |
+   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+                     Internet Datagram Header
+                     
+                     
+    Commands used are :
+    
+    		a) sudo tcpdump host www.iiitkota.ac.in -n -w lab3_4.out 
+    		
+    		b) wget http://www.iiitkota.ac.in
+    		
+    		c) wireshark -r lab3_4.out
+  
+  
+ Exercise 2)   		
+    		
+ Ans 2) It is a client server implementation using unix sockets wherein server should 
+ 		be able to receive and process connection requests from multiple clients.
+ 		In this example client can request from the server and get the instant acknowledgement.
+ 		
+ 		Extra work : If a client types some common commands like ls ;the output of the
+ 					 following will be shown on the server side . For this I have used "system".
+ 		
+ 		
+ Exercise 3)
+ 
+ 	Ans 1)
+ 		(1)	tcpdump udp port 520 : To print all udp packets to and from port 520.
+ 		
+ 		(2) tcpdump -x -s 120 ip proto 89 : In addition to printing the headers of each packet , either arriving 
+ 											at or departing from port 89, print the the data of each using -x 
+ 											in truncated format i.e. defining the size of data using -s instead
+ 										    of the default data size 65535 bytes. Here the size of data is 120 bytes.	
+ 		
+ 		
+ 		(3) tcpdump -x -s 70 host ip_addr1 and not ip_addr2 : 
+ 		
+ 		
